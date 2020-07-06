@@ -32,5 +32,5 @@ class Student extends Person
 class CollegeStudent extends Student
 {
 	String college_name="Klu";
-	int year=2017;
+	String year="Fourth";
 }
