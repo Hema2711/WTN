@@ -1,0 +1,55 @@
+package com.wipro.abstractclass;
+import java.util.Random;
+public class TestCompartment {
+public static void main(String[] args) {
+     Compartment comp[]=new Compartment[10];
+     Random rnd=new Random();
+     int num=0;
+     for(int i=0;i<10;i++)
+     {
+    	 num=rnd.nextInt(4);
+    	 if(num==0)
+    		 comp[i]=new Luggage();
+    	 else if(num==1)
+    		 comp[i]=new Ladies();
+    	 else if(num==2)
+    		 comp[i]=new General();
+    	 else
+    		 comp[i]=new FirstClass();
+    	 comp[i].notice();
+    	 System.out.println();
+     }
+}
+}
+abstract class Compartment
+{
+	public abstract void notice();
+}
+class FirstClass extends Compartment
+{
+	public void notice()
+	{
+		System.out.println("First Class Compartment");
+	}
+}
+class Ladies extends Compartment
+{
+	public void notice()
+	{
+		System.out.println("Ladies Compartment");
+	}
+}
+class General extends Compartment
+{
+	public void notice()
+	{
+		System.out.println("General Compartment");
+	}
+}
+class Luggage extends Compartment
+{
+	public void notice()
+	{
+		System.out.println("Luggage Compartment");
+	}
+}
