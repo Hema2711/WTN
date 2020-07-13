@@ -1,0 +1,110 @@
+package com.java.interfaces;
+
+public class LibraryInterfaceDemo {
+	public static void main(String[] args) {
+		KidUsers KU = new KidUsers();
+
+		KU.setAge(10);
+		KU.setBookType("Kids");
+		KU.registerAccount();
+		KU.requestBook();
+
+		KU.setAge(18);	
+		KU.setBookType("Fiction");		
+		KU.registerAccount();
+		KU.requestBook();
+
+		System.out.println();
+
+		// Test case #2:
+		AdultUser aU = new AdultUser();
+
+		aU.setAge(5);
+		aU.setBookType("Kids");
+		aU.registerAccount();
+		aU.requestBook();
+
+		aU.setAge(23);	
+		aU.setBookType("Fiction");		
+		aU.registerAccount();
+		aU.requestBook();
+
+	}
+
+
+}
+interface LibraryUser
+{
+	void registerAccount();
+	void requestBook();
+}
+class KidUsers implements LibraryUser
+{
+	private int age;
+	private String bookType;
+	public void setAge(int age)
+	{
+		this.age=age;
+	}
+	public void setBookType(String bookType)
+	{
+		this.bookType=bookType;
+	}
+	public void registerAccount()
+	{
+		if(age<12)
+		{
+			System.out.println("You have successfully registered under a kids Account");
+		}
+		else 
+		{
+			System.out.println("Sorry, Age must be less than 12 to register as a kid");
+		}		
+	}
+	public void requestBook()
+	{
+		if(bookType.equals("Kids"))
+		{
+			System.out.println("Book Issued successfully, please return the book within 10 days");
+		}
+		else
+		{
+			System.out.println("Oops, you are allowed to take only kids books");
+		}
+	}
+}
+class AdultUser implements LibraryUser
+{
+	private int age;
+	private String bookType;
+	public void setAge(int age)
+	{
+		this.age=age;
+	}
+	public void setBookType(String bookType)
+	{
+		this.bookType=bookType;
+	}
+	public void registerAccount()
+	{
+		if(age>12)
+		{
+			System.out.println("You have successfully registered under an Adult Account");
+		}
+		else 
+		{
+			System.out.println("Sorry, Age must be greater than 12 to register as an adult");
+		}
+	}
+	public void requestBook()
+	{
+		if(bookType.equals("Fiction"))
+		{
+			System.out.println("Book Issued successfully, please return the book within 7 days");
+		}
+		else
+		{
+			System.out.println("Oops, you are allowed to take only adult Fiction books");
+		}
+	}
+}
